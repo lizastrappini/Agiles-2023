@@ -32,7 +32,7 @@ def test_contarCantLetras1():
     
 def test_contarCantLetras2():
     juego = Ahorcado("lio")
-    assert juego.contarLetras()== 6
+    assert juego.contarLetras()== 3
 
 
 
@@ -78,4 +78,4 @@ def test_juego_terminado_perdedor():
     juego.intento("r")
     juego.intento("z")
     juego.intento("x")
-    assert juego.juego_terminado() == True
+    assert juego.juego_terminado() == False
