@@ -15,8 +15,5 @@ jobs:
         with:
           python-version: 3.11.6
         
-      - name: Instalar dependencias
-        run: npm ci
-        
       - name: Run Test
         run: python -m pytest
