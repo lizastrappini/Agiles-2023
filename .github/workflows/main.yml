@@ -26,4 +26,4 @@ jobs:
           pipenv install --dev
           
       - name: Run tests and coverage
-        run: npm test-- --coverage
+        run: npm test -- --coverage
