@@ -3,6 +3,8 @@ import random
 
 
 app = Flask(__name__)
+if __name__ == "__main__":
+  app.run(debug=True)
 
 # Clave para poder utilizar variables de sesion
 app.secret_key = 'tu_clave_secreta'
