@@ -14,7 +14,7 @@ body{
 h1.titulo {
   margin: 50px auto 80px auto;
   text-align: center;
-  color:white;
+  color:rgb(214, 16, 16);
   font-family: monospace;
 }
 h2.titulo{
