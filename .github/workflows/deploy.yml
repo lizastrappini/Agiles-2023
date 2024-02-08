@@ -34,9 +34,12 @@ jobs:
           source venv/bin/activate
       - name: Install dependencies
         run: pip install -r requirements.txt
-
+        
+      - name: set flask app
+        run: set FLASK_APP=index:crear_app
+        
       - name: start
-        run: python -m flask --app index run
+        run: flask run
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
