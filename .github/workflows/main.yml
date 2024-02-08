@@ -32,5 +32,12 @@ jobs:
         run: |
           pip install coverage
           coverage 
+
+      - name: Deploy to Render.com
+        uses: renderapp/action@v1
+        with:
+          render_token: ${{ secrets.RENDER_TOKEN }}
+
+
           
 
