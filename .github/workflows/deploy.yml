@@ -35,21 +35,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
         
-      - name: set flask app
-        run: set FLASK_APP=index:crear_app
-        
-      - name: start
-        run: flask --app index run
-        
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./
-          destination: ./_site
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Build static files
+        run: |
+              # Aquí puedes usar cualquier herramienta que generes los archivos estáticos, como Frozen-Flask o Flask-Frozen
+              # Por ejemplo, congelar la aplicación Flask
+              python index.py freeze
 
   # Deployment job
   deploy:
