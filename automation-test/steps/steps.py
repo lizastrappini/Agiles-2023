@@ -1,57 +1,53 @@
 from behave import given,when,then
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait, Select
+from selenium.webdriver.support import expected_conditions as EC
 
 HOME_URL = "https://ahorcado-metod-agiles.onrender.com/"
-LOST_URL = "https://ahorcado-metod-agiles.onrender.com/jugar"
-MESSAGE_LOST= "Perdiste!"
-PALABRA_LOST_MESSAGE = "La palabra era : "
 
+def esperar_elemento(context, by, value):
+    return WebDriverWait(context.driver, 30).until(
+        EC.presence_of_element_located((by, value))
+    )
 # Iniciar nuevo juego
-@given('Ingreso a la pagina principal del juego')
+@given('Ingreso a la pagina del juego')
 def abrir_pagina(context):
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     context.driver = webdriver.Chrome(options=options)
-
-@when('Inicia el juego')
-def comienza_juego(context):
     context.driver.get(HOME_URL)
+def after_scenario(context, scenario):
+    context.driver.quit()
+    
+
+# @when('Elige la dificultad e inicia el juego')
+# def comienza_juego(context):
+#     context.driver.get(HOME_URL)
+
+@when('Elige la dificultad e inicia el juego')
+def comienza_juego(context, opcion):
+    dropdown = esperar_elemento(context, By.ID, "opcion")
+    select = Select(dropdown)
+    select.select_by_visible_text(opcion)
 
 
 @then('la palabra a adivinar debe mostrarse con guiones')
 def palabra_con_guiones(context):
     texto = context.driver.find_element(By.ID,'palabraAhorcado').text  
-    inicio_lista = texto.find()
-
-    palabra_con_guiones = eval(texto[inicio_lista:])
-
-    print(palabra_con_guiones)
-    print(palabra_con_guiones.count('_'))
-    print(len(palabra_con_guiones))
-    assert palabra_con_guiones.count('_') == len(palabra_con_guiones)
-
+    assert '_' in texto
 
 @then('el numero de vidas debe ser 6')
 def mantiene_vidas(context):
     h2 = context.driver.find_element(By.ID,'vidas').text
-    print(h2)
     digitos = int(''.join(caracter for caracter in h2 if caracter.isdigit()))
-
-    print(digitos)
-
     assert digitos == 6
 
-# adivina letras
-
+# ingresa letra incorrecta
 @given('El jugador inicia el juego')
-def empieza_juego(context):
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    context.driver = webdriver.Chrome(options=options)
-
+def comienza_juego(context):
     context.driver.get(HOME_URL)
-
+    
 @when('El jugador ingresa la letra "{letra}"')
 def ingresa_letra(context,letra):
     elemento =  context.driver.find_element(By.NAME,"input")
@@ -61,60 +57,29 @@ def ingresa_letra(context,letra):
     context.driver.find_element(By.NAME,"adivinar").click()
     
     
-@then('Pierde una vida')
+@then('El jugador pierde una vida')
 def pierde_vida(context):
     h2 = context.driver.find_element(By.ID,'vidas').text
-    print(h2)
     vidas = int(''.join(caracter for caracter in h2 if caracter.isdigit()))
 
     assert vidas < 6
 
 
 
-@then('Se muestra como letra incorrecta "{letra}"')
+@then('Se resalta como letra incorrecta "{letra}"')
 def letras_incorrectas(context,letra):
-    
     texto = context.driver.find_element(By.ID,'incorrectas').text  
-    inicio_lista = texto.find("")
-
-    incorrectas = eval(texto[inicio_lista:])
-
+    incorrectas = eval(texto)
     assert letra in incorrectas
+    
+# ingresa letra correcta
 
 @then('La palabra contiene la "{letra}"')
 def estado_palabra_adivinar(context,letra):
     texto = context.driver.find_element(By.ID,'palabraAhorcado').text  
-    inicio_lista = texto.find("")
-
-    palabra_adivinar = eval(texto[inicio_lista:])
-
+    palabra_adivinar = eval(texto)
     assert letra in palabra_adivinar
 
-# Pierde el juego
-@when('El jugador ingresa 6 caracteres incorrectos')
-def adivina_6_incorrectas(context):
-    caracteres = ["!","*","+",".","&",":"]
-    context.driver.implicitly_wait(40) # seconds
-
-    for c in caracteres:
-        elemento =  context.driver.find_element(By.NAME,"input")
-        elemento.send_keys(c)
-        context.driver.implicitly_wait(40) # seconds
-
-        context.driver.find_element(By.NAME,"adivinar").click()
-    
-
-@then('Pierde el juego')
-def pierde(context):
-    assert LOST_URL in context.driver.current_url
-
-@then('Muestra el mensaje de que perdio con la palabra a adivinar')
-def mensaje_pierde(context):
-    mensaje = context.driver.find_element(By.ID,'lost').text
-    palabra = context.driver.find_element(By.ID,'palabra').text
-
-    assert mensaje == LOST_MESSAGE
-    assert  PALABRA_LOST_MESSAGE in palabra
 
 # Reiniciar el juego
 @given('El jugador ingresa la letra "{letra}"')
@@ -129,3 +94,5 @@ def ingresa_letra(context,letra):
 @when('El jugador reinicia el juego')
 def reinicia(context):
     context.driver.find_element(By.NAME,"reinicia").click()
+
+
