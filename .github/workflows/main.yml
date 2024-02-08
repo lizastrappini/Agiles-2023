@@ -26,12 +26,15 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest
+          pip install pytest pytest-cov 
+          
 
-      - name: Run tests and coverage
+      - name: Tests and coverage
         run: |
-          pip install coverage
-          coverage 
+          python -m pytest --cov=.
+     
+      - name: Test Report
+        run: coverage report 
 
 
 
