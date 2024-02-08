@@ -39,7 +39,7 @@ jobs:
         run: set FLASK_APP=index:crear_app
         
       - name: start
-        run: flask run
+        run: flask --app index run
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
