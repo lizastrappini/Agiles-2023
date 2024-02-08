@@ -28,6 +28,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Create and start virtual environment
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: start
+        run: flask run
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Build with Jekyll
