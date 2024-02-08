@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request
 from Main import Ahorcado
-from flask_frozen import Freezer
+
 
 app = Flask(__name__)
-freezer = Freezer(app)
+
 
 juego = Ahorcado()
 
