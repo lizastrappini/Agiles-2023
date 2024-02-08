@@ -28,20 +28,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Create and start virtual environment
-        run: |
-          python -m venv venv
-          source venv/bin/activate
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install frozen-flask
-        
-      - name: Build static files
-        run: |
-              # Aquí puedes usar cualquier herramienta que generes los archivos estáticos, como Frozen-Flask o Flask-Frozen
-              # Por ejemplo, congelar la aplicación Flask
-              python index.py freeze
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
 
   # Deployment job
   deploy:
