@@ -36,7 +36,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: start
-        run: flask run
+        run: python -m flask --app index run
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
