@@ -35,7 +35,7 @@ jobs:
       - name: Generate coverage
         run: |
           coverage run -m pytest
-          coverage report
+          pytest --cov=. --cov-report=xml
           
   sonarcloud:
     name: SonarCloud
