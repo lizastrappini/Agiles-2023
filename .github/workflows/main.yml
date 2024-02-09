@@ -19,9 +19,14 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest
           pip install coverage
           pip install pytest pytest-cov
+      
+      - name: Update pytest and py
+        run: |
+              pip install --upgrade pytest py
+      - name: Print requirements.txt
+        run: cat requirements.txt
 
       - name: Run tests
         run: |
