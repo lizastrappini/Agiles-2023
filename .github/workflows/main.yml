@@ -34,7 +34,7 @@ jobs:
 
       - name: Generate coverage
         run: |
-          coverage run -m pytest
+          coverage run -m pytest src/tests
           coverage xml -i -o coverage.xml
 
           
