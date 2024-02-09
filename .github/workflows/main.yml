@@ -28,6 +28,11 @@ jobs:
       - name: Print requirements.txt
         run: cat requirements.txt
 
+      - name: Print current directory
+        run: |
+              pwd && ls -l
+
+              
       - name: Run tests
         run: |
           pytest
@@ -49,3 +54,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.python.coverage.reportPaths=coverage.xml
