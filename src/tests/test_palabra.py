@@ -5,11 +5,6 @@ def test_palabraCorrecta():
     juego = Ahorcado()
     juego.palabra_a_adivinar = ['perro', '']
     assert juego.verificar_palabra('perro') == True
-
-def test_palabraCorrecta():
-    juego = Ahorcado()
-    juego.palabra_a_adivinar = ['gato', '']
-    assert juego.verificar_palabra('perro') == True
  
 def test_palabraIncorrecta():
     juego = Ahorcado()
@@ -104,6 +99,10 @@ def test_juego_terminado_perdedor():
     juego.intento("z")
     juego.intento("x")
     assert juego.verificar_fin_juego() == True
+
+def test_abecedario():
+    juego = Ahorcado()
+    assert juego.abecedario() == ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 
 if __name__ == '__main__':
     pytest.main()
