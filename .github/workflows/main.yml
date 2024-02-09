@@ -32,25 +32,19 @@ jobs:
         run: |
               pwd && ls -l
 
-              
-      - name: Run tests
-        run: |
-          pytest
-
       - name: Generate coverage
         run: |
           coverage run -m pytest
           coverage xml -i -o coverage.xml
+
           
-  sonarcloud:
-    name: SonarCloud
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
+      - name: Coverage report
+        run: |
+          coverage report
+
+          
+      - name: SonarCloud
+      - uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
