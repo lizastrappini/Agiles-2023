@@ -35,8 +35,7 @@ jobs:
       - name: Generate coverage
         run: |
           coverage run -m pytest
-          pytest --cov=/src --cov-report=xml
-          ls -l  # Verificar si el archivo coverage.xml se ha generado
+          coverage xml -i -o coverage.xml
           
   sonarcloud:
     name: SonarCloud
