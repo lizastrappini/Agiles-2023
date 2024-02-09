@@ -1,11 +1,16 @@
 from Main import Ahorcado
-
+import pytest
 
 def test_palabraCorrecta():
     juego = Ahorcado()
     juego.palabra_a_adivinar = ['perro', '']
     assert juego.verificar_palabra('perro') == True
-    
+
+def test_palabraCorrecta():
+    juego = Ahorcado()
+    juego.palabra_a_adivinar = ['gato', '']
+    assert juego.verificar_palabra('perro') == True
+ 
 def test_palabraIncorrecta():
     juego = Ahorcado()
     juego.palabra_a_adivinar = ['perro', '']
@@ -99,3 +104,6 @@ def test_juego_terminado_perdedor():
     juego.intento("z")
     juego.intento("x")
     assert juego.verificar_fin_juego() == True
+
+if __name__ == '__main__':
+    pytest.main()
