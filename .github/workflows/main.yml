@@ -22,12 +22,16 @@ jobs:
           pip install pytest
           pip install coverage
           pip install pytest pytest-cov
-          
-      - name: Run tests with coverage
+
+      - name: Run tests
+        run: |
+          pytest
+
+      - name: Generate coverage
         run: |
           coverage run -m pytest
           coverage report
-      
+          
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
@@ -40,7 +44,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-
-          
-
