@@ -41,7 +41,7 @@ jobs:
     # Run set of commands unit tests and sonar cloud
       - name: Run tests with coverage
         run: |
-          coverage run coverage run -m pytest src/tests
+          coverage run -m pytest src/tests
           coverage xml -i -o coverage.xml
 
 
