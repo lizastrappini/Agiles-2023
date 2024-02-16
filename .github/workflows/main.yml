@@ -29,14 +29,6 @@ jobs:
       - name: Print requirements.txt
         run: cat requirements.txt
 
-      - name: Download ChromeDriver
-        run: |
-          wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6045.159/linux64/chromedriver-linux64.zip
-          unzip chromedriver-linux64.zip
-    
-      - name: Set Permissions for ChromeDriver
-        run: |
-          chmod +x chromedriver-linux64
         
     # Run set of commands unit tests and sonar cloud
       - name: Run tests with coverage
@@ -60,12 +52,20 @@ jobs:
             -Dsonar.python.coverage.reportPaths=coverage.xml
      
      # Run  ATDD
-
+     
+      - name: Download ChromeDriver
+        run: |
+          wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6045.159/linux64/chromedriver-linux64.zip
+          unzip chromedriver-linux64.zip
+    
+      - name: Set Permissions for ChromeDriver
+        run: |
+          chmod +x chromedriver-linux64
+          
       - name: Run Test
         if: always()
         run: behave -f allure_behave.formatter:AllureFormatter -o reports -vv automation-test/features  
-  
-        
+
         
       - name: Get Allure history
         uses: actions/checkout@v3
