@@ -21,6 +21,7 @@ jobs:
           pip install -r requirements.txt
           pip install coverage
           pip install pytest pytest-cov
+          pip install allure
       
       - name: Update pytest and py
         run: |
@@ -28,14 +29,21 @@ jobs:
       - name: Print requirements.txt
         run: cat requirements.txt
 
-      - name: Print current directory
+      - name: Download ChromeDriver
         run: |
-              pwd && ls -l
-
-      - name: Generate coverage
+          wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/119.0.6045.159/linux64/chromedriver-linux64.zip
+          unzip chromedriver-linux64.zip
+    
+      - name: Set Permissions for ChromeDriver
         run: |
-          coverage run -m pytest src/tests
+          chmod +x chromedriver-linux64
+        
+    # Run set of commands unit tests and sonar cloud
+      - name: Run tests with coverage
+        run: |
+          coverage run coverage run -m pytest src/tests
           coverage xml -i -o coverage.xml
+
 
           
       - name: Coverage report
@@ -50,3 +58,24 @@ jobs:
         with:
           args: >
             -Dsonar.python.coverage.reportPaths=coverage.xml
+      
+      # Run  ATDD
+      - name: Run Test
+        if: always()
+        run: behave -f allure_behave.formatter:AllureFormatter -o reports -vv automation-test/features
+        continue-on-error: true
+        
+      - name: Get Allure history
+        uses: actions/checkout@v3
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Allure Report action from marketplace
+        uses: simple-elf/allure-report-action@v1
+        if: always()
+        with:
+          allure_results: reports
+          allure_history: reports
