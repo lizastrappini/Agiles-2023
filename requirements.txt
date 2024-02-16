@@ -80,3 +80,5 @@ WebTest==2.0.35
 Werkzeug==3.0.1
 wrapt==1.12.1
 zipp==3.11.0
+allure-behave==2.13.2
+allure-python-commons==2.13.2
