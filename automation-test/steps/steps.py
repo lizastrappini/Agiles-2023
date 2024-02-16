@@ -104,6 +104,7 @@ def estado_letra(context, letra):
     
 # ingresa letra correcta
 
+
 @then('La palabra contiene la "{letra}"')
 def estado_palabra_adivinar(context,letra):
     context.driver.implicitly_wait(10) 
@@ -122,8 +123,6 @@ def ingresa_letra(context):
     element= context.driver.find_element(By.ID,'letra')
     element.click()
     
- 
-   
     
 @when('El jugador reinicia el juego')
 def reinicia(context):
@@ -134,9 +133,3 @@ def after_scenario(context, scenario):
     context.driver.quit()
 
 
-@given('El jugador selecciona la letra "{letra}"')
-def ingresa_letra(context,letra):
-    context.driver.implicitly_wait(40) 
-    boton_letra = context.driver.find_element(By.ID, f'letra_{letra}')
-    assert boton_letra.get_attribute("value") == letra
-    boton_letra.click()

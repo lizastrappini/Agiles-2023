@@ -29,15 +29,17 @@ Feature: Juego del Ahorcado
   Scenario Outline: Adivinar una letra correcta
       Given El jugador inicia el juego
       When Elige "<dificultad>" y hace click en comenzar 
-      And El jugador selecciona la letra "a"
-      Then La palabra contiene la "a"
+      And El jugador selecciona la letra "<letra>"
+      Then La palabra contiene la "<letra>"
       And el numero de vidas debe ser 6
     
       Examples: 
-        | dificultad    |                     
-        | facil         |     
-        | media         |    
-        | dificil       |     
+       
+        | dificultad    |   letra   |       
+        | facil         |     a     |     
+        | media         |     e     |     
+        | dificil       |     m     |     
+   
 
 
  
