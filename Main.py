@@ -2,7 +2,7 @@ import random
 
 
 # Palabras disponibles
-palabras_facil = [["sol", "Fuente principal de luz del sistema solar"], ["gato", "Animal doméstico de compañía"],["casa", "Lugar donde vives"] ]
+palabras_facil = [["sal", "Fuente principal de luz del sistema solar"], ["gato", "Animal doméstico de compañía"],["casa", "Lugar donde vives"] ]
 palabras_intermedio = [["travesia", "Largo viaje o trampolín de experiencias"],["aventura", "Viaje emocionante y arriesgado"], ["melodia", "Secuencia armoniosa de sonidos"] ]
 palabras_dificil = [["efimero", "Que dura por un corto periodo de tiempo"],["magico", "Relacionado con la magia o algo extraordinario"], ["enigma", "Misterio o situación difícil de entender"]]
 
@@ -77,6 +77,7 @@ class Ahorcado():
         return self.palabra_mostrada
 
     def intento(self,letra):
+        print(letra)
         if( self.verificar_letra(letra) ):
             self.revelar_letra(letra)
             print(self.palabra_mostrada)

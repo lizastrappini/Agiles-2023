@@ -48,7 +48,8 @@
             {% if '_' not in palabra_mostrada: %}
             <h2 class="palabra" id="palabra">¡Felicitaciones! La palabra era {{palabra_a_adivinar}}</h2>
             {% else: %}
-            <h2 class="palabra" id="palabra">{{ palabra_mostrada }}</h2>
+            <h2 class="palabra" id="palabra_mostrada" value="{{palabra_mostrada}}">{{ palabra_mostrada }}</h2>
+            <input type="hidden" id="palabra_a_adivinar" value="{{palabra_a_adivinar}}">
             {% endif %}
             {% endif %}
 
@@ -80,9 +81,9 @@
                 <div class="flex-row" id="abcdario">
                     {% for letra in abecedario: %}
                         {%if letra in letras_usadas: %}
-                            <button type="submit" disabled="true" name="letra" value="{{letra}}" class="btn btn-secondary" id="letra">{{ letra }}</button>     
+                            <button type="submit" disabled="true" name="letra" value="{{letra}}" class="btn btn-secondary" id="letra_{{letra}}">{{ letra }}</button>     
                         {%else%}
-                            <button type="submit" name="letra" value="{{letra}}" class="btn btn-light" id="letra">{{ letra }}</button>
+                            <button type="submit" name="letra" value="{{letra}}" class="btn btn-light" id="letra_{{letra}}">{{ letra }}</button>
                             
                         {%endif%}
                     {% endfor %}

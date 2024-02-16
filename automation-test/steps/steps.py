@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+
 
 HOME_URL = "https://ahorcado-metod-agiles.onrender.com/"
 
@@ -27,10 +29,12 @@ def abrir_pagina(context):
     
 @when('Elige "{dificultad}" y hace click en comenzar')
 def comienza_juego(context, dificultad):
-    elemento =  context.driver.find_element(By.NAME,"dificultad")
-    elemento.send_keys(dificultad)
-    context.driver.implicitly_wait(40) 
-    context.driver.find_element(By.NAME,"comenzar").click()
+    elemento_dificultad =  context.driver.find_element(By.ID, f'{dificultad}')
+    #elemento.send_keys(dificultad)
+    #context.driver.implicitly_wait(40) 
+    elemento_dificultad.click()
+    elemento_comenzar =  context.driver.find_element(By.ID, "dificultad").click()
+
     # dropdown = esperar_elemento(context, By.ID, 'seleccion')
     # context.driver.implicitly_wait(40) 
     # select = Select(dropdown)
@@ -44,25 +48,25 @@ def comienza_juego(context, dificultad):
 
 @then('la palabra a adivinar debe mostrarse con guiones')
 def palabra_guiones(context):
-    texto = context.driver.find_element(By.ID,'palabraAhorcado').text  
-    inicio_lista = texto.find("_")
 
-    palabra_guiones = eval(texto[inicio_lista:])
+    context.driver.implicitly_wait(40) 
+    palabra_elemento = context.driver.find_element(By.ID,"palabra_a_adivinar")
+    palabra = palabra_elemento.get_attribute("value")
+    palabra_guiones = context.driver.find_element(By.ID,"palabra_mostrada").text 
+    cantidad_guiones = palabra_guiones.count("_")
+    cantidad_letras = len(palabra)
 
-    print(palabra_guiones)
-    print(palabra_guiones.count('_'))
-    print(len(palabra_guiones))
-    
-    assert palabra_guiones.count('_') == len(palabra_guiones)
+   
+    assert cantidad_letras == cantidad_guiones
 
+ 
 
 @then('el numero de vidas debe ser 6')
 def mantiene_vidas(context):
-    h2 = context.driver.find_element(By.ID,'vidas').text
-    print(h2)
-    digitos = int(''.join(caracter for caracter in h2 if caracter.isdigit()))
-    print(digitos)
-    assert digitos == 6
+    intentos_elemento = context.driver.find_element(By.ID,'intentos')
+    intentos = intentos_elemento.get_attribute("value")
+
+    assert int(intentos) == 6
 
 # ingresa letra incorrecta
 @given('El jugador inicia el juego')
@@ -70,41 +74,42 @@ def empieza_juego(context):
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
     context.driver = webdriver.Chrome(options=options)
+    context.driver.get(HOME_URL)
 
-    context.driver.get(HOME_URL)
     
-@when('El jugador selecciona una letra')
-def ingresa_letra(context):
-    context.driver.get(HOME_URL)
-    WebDriverWait(context.driver, 10).until(
-    EC.presence_of_element_located((By.ID, 'letra')))
+@when('El jugador selecciona la letra "{letra}"')
+def ingresa_letra(context,letra):
+    context.driver.implicitly_wait(40) 
+    boton_letra = context.driver.find_element(By.ID, f'letra_{letra}')
     
-    # context.driver.implicitly_wait(40) # seconds
-    
-    element= context.driver.find_element(By.ID,'letra')
-    element.click()
-    
-    
- 
-    
+    assert boton_letra.get_attribute("value") == letra
+    boton_letra.click()
     
     
 @then('El jugador pierde una vida')
 def pierde_vida(context):
-    h2 = context.driver.find_element(By.ID,'intentos').text
-    print(h2)
-    vidas = int(''.join(caracter for caracter in h2 if caracter.isdigit()))
+    intentos_elemento = context.driver.find_element(By.ID,'intentos')
+    intentos = intentos_elemento.get_attribute("value")
 
-    assert vidas < 6
+    assert int(intentos) < 6
 
+
+@then('Se muestra como letra usada "{letra}"')
+def estado_letra(context, letra):
+    WebDriverWait(context.driver, 10).until(
+        EC.presence_of_element_located((By.ID, f'letra_{letra}'))
+    )
+    letra_elemento = context.driver.find_element(By.ID, f'letra_{letra}')
+    assert not letra_elemento.is_enabled()
     
 # ingresa letra correcta
 
 @then('La palabra contiene la "{letra}"')
 def estado_palabra_adivinar(context,letra):
-    texto = context.driver.find_element(By.ID,'palabra').text  
-    palabra_adivinar = eval(texto)
-    assert letra in palabra_adivinar
+    context.driver.implicitly_wait(10) 
+    texto_elemento = context.driver.find_element(By.ID,'palabra_a_adivinar') 
+    palabra_a_adivinar = texto_elemento.get_attribute("value")
+    assert letra in palabra_a_adivinar
 
 
 # Reiniciar el juego
@@ -114,8 +119,6 @@ def ingresa_letra(context):
     WebDriverWait(context.driver, 10).until(
     EC.presence_of_element_located((By.ID, 'letra')))
     
-    # context.driver.implicitly_wait(40) # seconds
-    
     element= context.driver.find_element(By.ID,'letra')
     element.click()
     
@@ -124,8 +127,16 @@ def ingresa_letra(context):
     
 @when('El jugador reinicia el juego')
 def reinicia(context):
-    context.driver.find_element(By.ID,"reset").click()
+    context.driver.find_element(By.ID,"botonVolver").click()
 
 
 def after_scenario(context, scenario):
     context.driver.quit()
+
+
+@given('El jugador selecciona la letra "{letra}"')
+def ingresa_letra(context,letra):
+    context.driver.implicitly_wait(40) 
+    boton_letra = context.driver.find_element(By.ID, f'letra_{letra}')
+    assert boton_letra.get_attribute("value") == letra
+    boton_letra.click()
