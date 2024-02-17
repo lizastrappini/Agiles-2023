@@ -1,0 +1,191 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "children" : [ {
+    "name" : "Juego del Ahorcado",
+    "children" : [ {
+      "name" : "Adivinar una letra correcta -- @1.2 ",
+      "uid" : "b8b014dd6df3780d",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "broken",
+      "time" : {
+        "start" : 1708086773756,
+        "stop" : 1708086779865,
+        "duration" : 6109
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "media", "b" ]
+    }, {
+      "name" : "Adivinar una letra correcta -- @1.3 ",
+      "uid" : "de1c0c3d74b2d4cb",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "broken",
+      "time" : {
+        "start" : 1708086779865,
+        "stop" : 1708086785713,
+        "duration" : 5848
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "dificil", "c" ]
+    }, {
+      "name" : "Iniciar nuevo juego -- @1.1 ",
+      "uid" : "36613aeb33a8d82e",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088610684,
+        "stop" : 1708088615972,
+        "duration" : 5288
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "facil" ]
+    }, {
+      "name" : "Iniciar nuevo juego -- @1.2 ",
+      "uid" : "380d19246cb9a4b3",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088615972,
+        "stop" : 1708088621047,
+        "duration" : 5075
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "media" ]
+    }, {
+      "name" : "Iniciar nuevo juego -- @1.3 ",
+      "uid" : "e525a71e10640b30",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088621047,
+        "stop" : 1708088626172,
+        "duration" : 5125
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "dificil" ]
+    }, {
+      "name" : "Ingresar una letra incorrecta -- @1.1 ",
+      "uid" : "39816bed067c6f3",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088626172,
+        "stop" : 1708088633181,
+        "duration" : 7009
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "facil", "x" ]
+    }, {
+      "name" : "Ingresar una letra incorrecta -- @1.2 ",
+      "uid" : "1c7f5eec3ec670f9",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088633181,
+        "stop" : 1708088638856,
+        "duration" : 5675
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "media", "w" ]
+    }, {
+      "name" : "Ingresar una letra incorrecta -- @1.3 ",
+      "uid" : "df5f9777924508e8",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088638856,
+        "stop" : 1708088644551,
+        "duration" : 5695
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "dificil", "z" ]
+    }, {
+      "name" : "Adivinar una letra correcta -- @1.1 ",
+      "uid" : "166e3b33dbc0200a",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088644551,
+        "stop" : 1708088650584,
+        "duration" : 6033
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "facil", "a" ]
+    }, {
+      "name" : "Adivinar una letra correcta -- @1.2 ",
+      "uid" : "6f157d158e368318",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088650584,
+        "stop" : 1708088656124,
+        "duration" : 5540
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "media", "e" ]
+    }, {
+      "name" : "Adivinar una letra correcta -- @1.3 ",
+      "uid" : "16f46c161bd966f1",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088656124,
+        "stop" : 1708088662391,
+        "duration" : 6267
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "dificil", "m" ]
+    }, {
+      "name" : "Reinicia el juego -- @1.1 ",
+      "uid" : "656bb83376ee40ea",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088662391,
+        "stop" : 1708088669306,
+        "duration" : 6915
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "facil", "c" ]
+    }, {
+      "name" : "Reinicia el juego -- @1.2 ",
+      "uid" : "5722589211baa4ab",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088669306,
+        "stop" : 1708088676269,
+        "duration" : 6963
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "media", "r" ]
+    }, {
+      "name" : "Reinicia el juego -- @1.3 ",
+      "uid" : "f87d67e9b5ce5c07",
+      "parentUid" : "57fef9a3e20d3aa83c06039aa2bbe9a4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088676269,
+        "stop" : 1708088683525,
+        "duration" : 7256
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "dificil", "b" ]
+    } ],
+    "uid" : "57fef9a3e20d3aa83c06039aa2bbe9a4"
+  } ],
+  "name" : "behaviors"
+}
