@@ -1,0 +1,181 @@
+{
+  "uid" : "9b7f42d0f9d80a01",
+  "name" : "Reinicia el juego -- @1.3 ",
+  "fullName" : "Juego del Ahorcado: Reinicia el juego",
+  "historyId" : "aac5f1e356ae4424630298e504bd9a1c",
+  "time" : {
+    "start" : 1708184156136,
+    "stop" : 1708184157449,
+    "duration" : 1313
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Given El jugador inicia el juego",
+      "time" : {
+        "start" : 1708184156136,
+        "stop" : 1708184156520,
+        "duration" : 384
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "When Elige \"dificil\" y hace click en comenzar",
+      "time" : {
+        "start" : 1708184156520,
+        "stop" : 1708184156704,
+        "duration" : 184
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "And El jugador selecciona la letra \"b\"",
+      "time" : {
+        "start" : 1708184156704,
+        "stop" : 1708184156933,
+        "duration" : 229
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "And El jugador reinicia el juego",
+      "time" : {
+        "start" : 1708184156933,
+        "stop" : 1708184157114,
+        "duration" : 181
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "And Elige \"dificil\" y hace click en comenzar",
+      "time" : {
+        "start" : 1708184157115,
+        "stop" : 1708184157353,
+        "duration" : 238
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Then la palabra a adivinar debe mostrarse con guiones",
+      "time" : {
+        "start" : 1708184157354,
+        "stop" : 1708184157383,
+        "duration" : 29
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "And el numero de vidas debe ser 6",
+      "time" : {
+        "start" : 1708184157383,
+        "stop" : 1708184157394,
+        "duration" : 11
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 7,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "feature",
+    "value" : "Juego del Ahorcado"
+  }, {
+    "name" : "framework",
+    "value" : "behave"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "dificultad",
+    "value" : "dificil"
+  }, {
+    "name" : "letra",
+    "value" : "b"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "858fd815dc75c855",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088676269,
+        "stop" : 1708088683525,
+        "duration" : 7256
+      }
+    }, {
+      "uid" : "ca88eb10ee6de661",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708086799500,
+        "stop" : 1708086806722,
+        "duration" : 7222
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "9b7f42d0f9d80a01.json",
+  "parameterValues" : [ "dificil", "b" ]
+}
