@@ -82,8 +82,10 @@ jobs:
         uses: simple-elf/allure-report-action@v1
         if: always()
         with:
-          allure_results: reports
-          allure_history: reports
+          allure_results: ${{ vars.ALLURE_RESULTS_PATH }} # Specify the directory containing Allure results
+          allure_history: allure-history # Specify the directory to store Allure history
+        
+          
           
       - name: Deploy report to Github Pages
         if: always()
@@ -91,4 +93,4 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: allure-reports
-          PUBLISH_DIR: reports
+          PUBLISH_DIR: allure-history
