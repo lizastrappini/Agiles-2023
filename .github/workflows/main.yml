@@ -66,7 +66,7 @@ jobs:
       - name: Run Test
         if: always()
         run: |
-          behave -vv automation-test/features 
+          behave -f allure_behave.formatter:AllureFormatter -o reports -vv automation-test/features 
           continue-on-error: true
 
         
