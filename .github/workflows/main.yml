@@ -65,7 +65,9 @@ jobs:
           
       - name: Run Test
         if: always()
-        run: behave -f allure_behave.formatter:AllureFormatter -o reports -vv automation-test/features  
+        run: |
+          pip install behave 
+          behave -f allure_behave.formatter:AllureFormatter -o reports -vv automation-test/features  
 
         
       - name: Get Allure history
