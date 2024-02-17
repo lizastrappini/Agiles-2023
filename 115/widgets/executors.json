@@ -1,0 +1,10 @@
+[ {
+  "name" : "GitHub Actions",
+  "type" : "github",
+  "url" : "https://lizastrappini.github.io/Agiles-2023",
+  "buildOrder" : 115,
+  "buildName" : "GitHub Actions Run #7942322702",
+  "buildUrl" : "https://github.com/lizastrappini/Agiles-2023/actions/runs/7942322702",
+  "reportName" : "Allure Report with history",
+  "reportUrl" : "https://lizastrappini.github.io/Agiles-2023/115"
+} ]
