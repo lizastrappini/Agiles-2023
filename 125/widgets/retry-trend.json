@@ -1,9 +1,0 @@
-[ {
-  "buildOrder" : 125,
-  "reportUrl" : "https://lizastrappini.github.io/Agiles-2023/125",
-  "reportName" : "Allure Report with history",
-  "data" : {
-    "run" : 14,
-    "retry" : 22
-  }
-} ]
