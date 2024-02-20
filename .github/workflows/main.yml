@@ -51,7 +51,7 @@ jobs:
         with:
           args: >
             -Dsonar.python.coverage.reportPaths=coverage.xml
-            -Dsonar.exclusions=index.py,**/features/*,**/steps/*,Main.py
+            -Dsonar.exclusions=index.py,**/features/*,**/steps/*
      
      # Run  ATDD
      
