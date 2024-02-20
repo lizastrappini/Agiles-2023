@@ -1,0 +1,151 @@
+{
+  "uid" : "e4243699ba489155",
+  "name" : "Ingresar una letra incorrecta -- @1.1 ",
+  "fullName" : "Juego del Ahorcado: Ingresar una letra incorrecta",
+  "historyId" : "33bb75b23c2c9aab47864208d5d35062",
+  "time" : {
+    "start" : 1708452405679,
+    "stop" : 1708452407537,
+    "duration" : 1858
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Given El jugador inicia el juego",
+      "time" : {
+        "start" : 1708452405679,
+        "stop" : 1708452406427,
+        "duration" : 748
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "When Elige \"facil\" y hace click en comenzar",
+      "time" : {
+        "start" : 1708452406428,
+        "stop" : 1708452406961,
+        "duration" : 533
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "And El jugador selecciona la letra \"x\"",
+      "time" : {
+        "start" : 1708452406961,
+        "stop" : 1708452407460,
+        "duration" : 499
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "Then El jugador pierde una vida",
+      "time" : {
+        "start" : 1708452407460,
+        "stop" : 1708452407473,
+        "duration" : 13
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    }, {
+      "name" : "And Se muestra como letra usada \"x\"",
+      "time" : {
+        "start" : 1708452407473,
+        "stop" : 1708452407484,
+        "duration" : 11
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 5,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "feature",
+    "value" : "Juego del Ahorcado"
+  }, {
+    "name" : "framework",
+    "value" : "behave"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "dificultad",
+    "value" : "facil"
+  }, {
+    "name" : "letra",
+    "value" : "x"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "8fca11e83bd54fa9",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708088626172,
+        "stop" : 1708088633181,
+        "duration" : 7009
+      }
+    }, {
+      "uid" : "604eb68f1ed551f8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1708086750039,
+        "stop" : 1708086756420,
+        "duration" : 6381
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e4243699ba489155.json",
+  "parameterValues" : [ "facil", "x" ]
+}
